@@ -1,0 +1,22 @@
+name: orchestrator
+
+on:
+  repository_dispatch:
+    types: [orchestrator]
+
+permissions:
+  contents: read
+
+jobs:
+  orchestrate:
+    uses: gh-actions-shared/gh-actions-shared/.github/workflows/orchestrator-core.yml@947e08e67e50cca1ad2edb98d7884b98f55b34a3
+    with:
+      event-payload: ${{ toJson(github.event.client_payload) }}
+      target-org: ${{ github.repository_owner }}
+      shared-repo: gh-actions-shared/gh-actions-shared
+      shared-ref: 947e08e67e50cca1ad2edb98d7884b98f55b34a3
+      bws-version: ${{ vars.BWS_VERSION }}
+      bws-sha256: ${{ vars.BWS_SHA256 }}
+    secrets:
+      BWS_ACCESS_TOKEN: ${{ secrets.BWS_ACCESS_TOKEN }}
+      BWS_PROJECT_ID: ${{ secrets.BWS_PROJECT_ID }}
