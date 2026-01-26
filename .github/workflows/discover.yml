@@ -11,14 +11,14 @@ permissions:
 jobs:
   discover:
     uses: >-
-      shared-common/gh-actions-shared/.github/workflows/discover-core.yml@3fc7f9fd74959495c846308bc3ae2788ea804ba8
+      shared-common/gh-actions-shared/.github/workflows/discover-core.yml@196e9781c87e8d2db80c847e04488abadbd1af54
     with:
       target-org: ${{ github.repository_owner }}
       event-context: ${{ toJson(github.event) }}
       event-name: ${{ github.event_name }}
       expected-event-action: discover
       shared-repo: shared-common/gh-actions-shared
-      shared-ref: 3fc7f9fd74959495c846308bc3ae2788ea804ba8
+      shared-ref: 196e9781c87e8d2db80c847e04488abadbd1af54
       bws-version: ${{ vars.BWS_VERSION }}
       bws-sha256: ${{ vars.BWS_SHA256 }}
     secrets:
