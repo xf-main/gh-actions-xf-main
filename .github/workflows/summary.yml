@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   summary:
-    uses: gh-actions-shared/gh-actions-shared/.github/workflows/summary-core.yml@50ad9f10f08b27e37c5ce2a3d6403e5a7aa0cc44
+    uses: gh-actions-shared/gh-actions-shared/.github/workflows/summary-core.yml@46373b14d0e51db69fd16424bd0e232d63a67c7a
     with:
       summary-json: ${{ toJson(github.event.client_payload) }}
       event-context: ${{ toJson(github.event) }}
@@ -17,7 +17,7 @@ jobs:
       expected-event-action: summary
       target-org: ${{ github.repository_owner }}
       shared-repo: gh-actions-shared/gh-actions-shared
-      shared-ref: 50ad9f10f08b27e37c5ce2a3d6403e5a7aa0cc44
+      shared-ref: 46373b14d0e51db69fd16424bd0e232d63a67c7a
       bws-version: ${{ vars.BWS_VERSION }}
       bws-sha256: ${{ vars.BWS_SHA256 }}
     secrets:
