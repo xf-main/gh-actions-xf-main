@@ -11,7 +11,7 @@ permissions:
 jobs:
   discover:
     uses: >-
-      shared-common/gh-actions-shared/.github/workflows/discover-core.yml@b5597ca885f041cc47f5bddbcb5df654411185ac
+      shared-common/gh-actions-shared/.github/workflows/discover-core.yml@f9766efa94822513b5b75c723163e6cebd10e090
     with:
       target-org: ${{ github.repository_owner }}
       event-context: ${{ toJson(github.event) }}
