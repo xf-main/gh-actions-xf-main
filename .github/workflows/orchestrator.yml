@@ -5,11 +5,12 @@ name: orchestrator
   repository_dispatch:
     types: [orchestrator]
 
-permissions:
-  contents: read
+permissions: {}
 
 jobs:
   orchestrate:
+    permissions:
+      contents: read
     uses: >-
       shared-common/gh-actions-shared/.github/workflows/orchestrator-core.yml@f9766efa94822513b5b75c723163e6cebd10e090
     with:

@@ -11,6 +11,7 @@ Org-specific GitHub Actions wrapper workflows that call shared reusable workflow
 - `uses:` references must be pinned to a commit SHA in the shared repo.
 - Wrapper workflows must pass event context inputs (`event-context`, `event-name`, `expected-event-action`).
 - Summary workflow must pass BWS secrets for event validation.
+- Workflow-level permissions must be `{}`; set minimal permissions per job.
 
 ## Permissions
 - Default `contents: read`. Only elevate if absolutely required.

@@ -5,11 +5,12 @@ name: discover
   repository_dispatch:
     types: [discover]
 
-permissions:
-  contents: read
+permissions: {}
 
 jobs:
   discover:
+    permissions:
+      contents: read
     uses: >-
       shared-common/gh-actions-shared/.github/workflows/discover-core.yml@f9766efa94822513b5b75c723163e6cebd10e090
     with:

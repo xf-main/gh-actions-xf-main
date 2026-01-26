@@ -5,11 +5,12 @@ name: summary
   repository_dispatch:
     types: [summary]
 
-permissions:
-  contents: read
+permissions: {}
 
 jobs:
   summary:
+    permissions:
+      contents: read
     uses: >-
       shared-common/gh-actions-shared/.github/workflows/summary-core.yml@f9766efa94822513b5b75c723163e6cebd10e090
     with:
