@@ -2,8 +2,18 @@
 name: orchestrator
 
 "on":
-  repository_dispatch:
-    types: [orchestrator]
+  workflow_dispatch:
+    inputs:
+      dispatch_action:
+        required: true
+        type: choice
+        options: [orchestrator]
+      app_id:
+        required: true
+        type: string
+      event_payload:
+        required: true
+        type: string
 
 permissions: {}
 
@@ -14,10 +24,10 @@ jobs:
     uses: >-
       shared-common/gh-actions-shared/.github/workflows/orchestrator-core.yml@f9766efa94822513b5b75c723163e6cebd10e090
     with:
-      event-payload: ${{ toJson(github.event.client_payload) }}
+      event-payload: ${{ inputs.event_payload }}
       event-context: ${{ toJson(github.event) }}
       event-name: ${{ github.event_name }}
-      expected-event-action: orchestrator
+      expected-event-action: ${{ inputs.dispatch_action }}
       target-org: ${{ github.repository_owner }}
       shared-repo: shared-common/gh-actions-shared
       shared-ref: b5597ca885f041cc47f5bddbcb5df654411185ac

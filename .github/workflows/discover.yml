@@ -2,8 +2,15 @@
 name: discover
 
 "on":
-  repository_dispatch:
-    types: [discover]
+  workflow_dispatch:
+    inputs:
+      dispatch_action:
+        required: true
+        type: choice
+        options: [discover]
+      app_id:
+        required: true
+        type: string
 
 permissions: {}
 
@@ -17,7 +24,7 @@ jobs:
       target-org: ${{ github.repository_owner }}
       event-context: ${{ toJson(github.event) }}
       event-name: ${{ github.event_name }}
-      expected-event-action: discover
+      expected-event-action: ${{ inputs.dispatch_action }}
       shared-repo: shared-common/gh-actions-shared
       shared-ref: b5597ca885f041cc47f5bddbcb5df654411185ac
       bws-version: ${{ vars.BWS_VERSION }}
