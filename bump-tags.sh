@@ -46,7 +46,7 @@ fi
 
 ROOT="$(git rev-parse --show-toplevel)"
 if [[ "$(basename "$ROOT")" != "gh-actions-xf-main" ]]; then
-  echo "Error: must run from gh-actions-upstream repo." >&2
+  echo "Error: must run from gh-actions-xf-main repo." >&2
   exit 1
 fi
 
